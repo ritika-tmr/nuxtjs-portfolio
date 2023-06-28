@@ -130,7 +130,6 @@
         :isOpen="isOpen"
         :showModal="showModal"
         :modal="modal"
-        :categories="categories"
       />
 
       <!-- Header right section buttons -->
@@ -218,7 +217,6 @@
     <HireMeModal
       :showModal="showModal"
       :modal="modal"
-      :categories="categories"
       aria-modal="Hire Me Modal"
     />
   </nav>
@@ -238,10 +236,6 @@ export default {
       isOpen: false,
       modal: false,
     };
-  },
-
-  computed: {
-    ...mapState(["categories"]),
   },
   methods: {
     themeSwitcher() {

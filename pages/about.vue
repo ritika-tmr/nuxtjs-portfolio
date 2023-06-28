@@ -19,7 +19,8 @@ export default {
 
 <!--    <AboutCounter />-->
 
-    <AboutClients class="container mx-auto" />
+<!--    <AboutClients class="container mx-auto" />-->
+    <Qualifications />
   </div>
 </template>
 

@@ -105,7 +105,7 @@
 </template>
 <script>
 export default {
-  props: ["isOpen", "showModal", "modal", "categories"],
+  props: ["isOpen", "showModal", "modal"],
 };
 </script>
 

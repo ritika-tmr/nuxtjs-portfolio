@@ -54,7 +54,7 @@
             sm:mb-0
             text-lg
             border-2 border-gray-900
-            dark:border-ternary-dark
+            dark:border-ternary-light
             py-1.5
             sm:py-3
             rounded-full
@@ -67,11 +67,11 @@
           "
           aria-label="Download Resume"
         >
-          <span class="text-sm sm:text-lg font-general-medium duration-100 underline underline-offset-4 ml-3"
+          <span class="text-sm sm:text-lg font-general-medium duration-100 underline underline-offset-4 ml-3 dark:text-primary-light"
           >More About Me</span>
           <i
             data-feather="arrow-right"
-            class="ml-0 sm:ml-1 mr-2 sm:mr-3 w-5 sm:w-6 duration-100"
+            class="ml-0 sm:ml-1 mr-2 sm:mr-3 w-5 sm:w-6 duration-100 dark:text-primary-light"
           ></i>
           </NuxtLink>
       </div>

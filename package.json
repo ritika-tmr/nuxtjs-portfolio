@@ -9,10 +9,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@tailwindcss/forms": "^0.3.4",
+    "@tailwindcss/forms": "^0.4.0",
     "core-js": "^3.15.1",
     "feather-icons": "^4.28.0",
-    "nuxt": "^2.15.7"
+    "nuxt": "^2.15.7",
+    "package.json": "^2.0.1"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^2.1.1",

@@ -11,35 +11,20 @@ export const state = () => ({
       tag: "UI / Frontend",
       objectivesTitle: "Objective",
       objectivesDetails:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, natus! Quibusdam enim quod in esse, mollitia molestias incidunt quas ipsa accusamus veniam.",
+        "A mobile roadside assistance application connecting users with immediate help for their vehicle-related issues anytime, anywhere.",
       techTitle: "Tools & Technologies",
-      detailsTitle: "Challenge",
+      detailsTitle: "Details",
       projectImages: [
         {
           id: 1,
           title: "Dashboard UI",
-          img: "../images/Roadmate-Dashboard.png",
+          img: "../images/Roadmate-Details-1.png",
         },
         {
           id: 2,
           title: "Details UI",
-          img: "../images/Roadmate-Details.png",
+          img: "../images/Roadmate-Details-2.png",
         },
-        {
-          id: 3,
-          title: "Roadmate Booked Service UI",
-          img: "../images/Roadmate-Booked-Service.png",
-        },
-        {
-          id: 4,
-          title: "Map UI",
-          img: "../images/Roadmate-Map.png",
-        },
-        {
-          id: 5,
-          title: "Search Page UI",
-          img: "../images/Roadmate-Seach-Page.png",
-        }
       ],
       technologies: [
         "HTML",
@@ -52,23 +37,7 @@ export const state = () => ({
       projectDetails: [
         {
           id: 1,
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
-        },
-        {
-          id: 2,
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
-        },
-        {
-          id: 3,
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
-        },
-        {
-          id: 4,
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
+          details: "I orchestrated the development of a mobile application dashboard utilizing the Quasar framework, ensuring seamless compatibility across multiple platforms. Integral to the project was the integration of the Google Maps API, enriching the user experience with location-based functionalities. The user interface was crafted using Figma, prioritizing both aesthetic appeal and user-friendliness. This project underscores my proficiency in frontend development and commitment to delivering visually compelling and intuitive user interfaces."
         },
       ],
     },
@@ -81,9 +50,9 @@ export const state = () => ({
       tag: "UI/UX Design ",
       objectivesTitle: "Objective",
       objectivesDetails:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, natus! Quibusdam enim quod in esse, mollitia molestias incidunt quas ipsa accusamus veniam.",
+        "An Education System featuring a user-friendly dashboard tailored for both students and teachers to manage coursework, track progress, and facilitate effective communication.",
       techTitle: "Tools & Technologies",
-      detailsTitle: "Challenge",
+      detailsTitle: "Details",
       projectImages: [
         {
           id: 1,
@@ -108,22 +77,7 @@ export const state = () => ({
         {
           id: 1,
           details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
-        },
-        {
-          id: 2,
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
-        },
-        {
-          id: 3,
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
-        },
-        {
-          id: 4,
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
+          "The Education System is a versatile platform designed to streamline academic processes for both students and teachers. With a user-centric dashboard, students gain easy access to course materials, assignments, grades, and academic resources, empowering them to track their progress and stay organized throughout their educational journey. Teachers benefit from intuitive tools that facilitate efficient course management, grading, and communication with students. The platform fosters collaboration and engagement, creating a dynamic learning environment conducive to academic success."
         },
       ],
     },
@@ -136,10 +90,15 @@ export const state = () => ({
       tag: "UI / Frontend",
       objectivesTitle: "Objective",
       objectivesDetails:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, natus! Quibusdam enim quod in esse, mollitia molestias incidunt quas ipsa accusamus veniam.",
+        "A portfolio designed to showcase my projects and provide insights into who I am as a professional.",
       techTitle: "Tools & Technologies",
-      detailsTitle: "Challenge",
+      detailsTitle: "Details",
       projectImages: [
+        {
+          id: 1,
+          title: "Education Dashboard",
+          img: "../images/Portfolio.png",
+        },
       ],
       technologies: [
         "HTML",
@@ -153,27 +112,11 @@ export const state = () => ({
         {
           id: 1,
           details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
-        },
-        {
-          id: 2,
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
-        },
-        {
-          id: 3,
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
-        },
-        {
-          id: 4,
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
+          "A portfolio designed to showcase my projects and provide insights into who I am as a professional. Through carefully curated project displays, visitors can explore my expertise, creativity, and problem-solving abilities across various domains. Accompanied by personal anecdotes and insights, the \"About Me\" section offers a glimpse into my journey, passions, and aspirations, enriching the visitor's understanding of the person behind the projects. With a blend of visual appeal and informative content, the portfolio serves as a compelling narrative of my skills, experiences, and accomplishments, aimed at leaving a lasting impression on potential collaborators and employers alike."
         },
       ],
     },
   ],
-  clientsHeading: "Some of the brands I worked with",
   aboutMe: [
     {
       id: 1,

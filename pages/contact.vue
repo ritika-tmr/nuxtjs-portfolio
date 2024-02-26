@@ -8,7 +8,7 @@
     "
   >
     <!-- Contact form -->
-    <ContactForm />
+<!--    <ContactForm />-->
 
     <!-- Contact details -->
     <ContactDetails :contacts="contacts" />
@@ -24,7 +24,7 @@ export default {
       contacts: [
         {
           id: 1,
-          name: "Homebush, NSW, Australia",
+          name: "Sydney, NSW, Australia",
           icon: "map-pin",
         },
         {
@@ -32,6 +32,11 @@ export default {
           name: "ritika.tamrakar@outlook.com",
           icon: "mail",
         },
+        {
+          id: 3,
+          name: "https://www.linkedin.com/in/ritika-tamrakar/",
+          icon: "linkedin",
+        }
       ],
     };
   },

@@ -15,10 +15,10 @@
       >
         {{ projectsHeading }}
       </p>
-      <!-- Note: This description is commented out, but if you want to see it, just uncomment this -->
-<!--      <p class="text-lg sm:text-xl text-gray-500 dark:text-ternary-light">-->
-<!--        {{ projectsDescription }}-->
-<!--      </p>-->
+<!--       Note: This description is commented out, but if you want to see it, just uncomment this -->
+      <p class="text-lg sm:text-xl text-gray-500 dark:text-ternary-light">
+        {{ projectsDescription }}
+      </p>
     </div>
 
     <!-- Filter and search projects -->

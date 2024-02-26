@@ -1,28 +1,3 @@
-<script>
-import feather from "feather-icons";
-import ProjectRelatedProjects from "../../components/projects/ProjectRelatedProjects.vue";
-export default {
-  scrollToTop: true,
-  data: () => {
-    return {
-      // @todo
-    };
-  },
-  computed: {
-    project() {
-      return this.$store.getters.getProjectById(this.$route.params.id);
-    },
-  },
-  mounted() {
-    feather.replace();
-  },
-  updated() {
-    feather.replace();
-  },
-  components: { ProjectRelatedProjects },
-};
-</script>
-
 <template>
   <div class="container mx-auto">
     <!-- Check if there are projects and then load -->
@@ -58,7 +33,7 @@ export default {
                 text-primary-dark
                 dark:text-primary-light
               "
-              >{{ project.publishDate }}</span
+            >{{ project.publishDate }}</span
             >
           </div>
           <div class="flex items-center">
@@ -74,7 +49,7 @@ export default {
                 text-primary-dark
                 dark:text-primary-light
               "
-              >{{ project.tag }}</span
+            >{{ project.tag }}</span
             >
           </div>
         </div>
@@ -98,42 +73,6 @@ export default {
       <div class="block sm:flex gap-0 sm:gap-10 mt-14">
         <!-- Single project left section details -->
         <div class="w-full sm:w-1/3 text-left">
-          <!-- Single project client details -->
-          <div class="mb-7">
-            <p
-              class="
-                font-general-medium
-                text-2xl text-secondary-dark
-                dark:text-secondary-light
-                mb-2
-              "
-            >
-              {{ project.clientTitle }}
-            </p>
-            <ul class="leading-loose">
-              <li
-                v-for="info in project.companyInfos"
-                :key="info.id"
-                class="
-                  font-general-regular
-                  text-ternary-dark
-                  dark:text-ternary-light
-                "
-              >
-                <span>{{ info.title }}: </span>
-                <a
-                  href="#"
-                  :class="
-                    info.title == 'Website' || info.title == 'Phone'
-                      ? 'hover:underline cursor-pointer'
-                      : ''
-                  "
-                  aria-label="Project website and phone"
-                  >{{ info.details }}</a
-                >
-              </li>
-            </ul>
-          </div>
 
           <!-- Single project objectives -->
           <div class="mb-7">
@@ -181,43 +120,6 @@ export default {
             </p>
           </div>
 
-          <!-- Single project social sharing -->
-          <div>
-            <p
-              class="
-                font-general-medium
-                text-2xl text-ternary-dark
-                dark:text-ternary-light
-                mb-2
-              "
-            >
-              {{ project.socialTitle }}
-            </p>
-            <div class="flex items-center gap-3 mt-5">
-              <a
-                v-for="social in project.socialSharings"
-                :key="social.id"
-                :href="social.url"
-                target="__blank"
-                aria-label="Share Project"
-                class="
-                  bg-ternary-light
-                  dark:bg-ternary-dark
-                  text-gray-400
-                  hover:text-primary-dark
-                  dark:hover:text-primary-light
-                  p-2
-                  rounded-lg
-                  shadow-sm
-                  duration-500
-                "
-                ><i
-                  :data-feather="social.icon"
-                  class="w-4 lg:w-5 h-4 lg:h-5"
-                ></i
-              ></a>
-            </div>
-          </div>
         </div>
 
         <!-- Single project right section details -->
@@ -248,9 +150,6 @@ export default {
           </p>
         </div>
       </div>
-
-      <!-- Project related projects -->
-      <ProjectRelatedProjects />
     </div>
 
     <!-- Load not found components if no project found -->
@@ -259,5 +158,28 @@ export default {
     </div>
   </div>
 </template>
+
+<script>
+import feather from "feather-icons";
+export default {
+  scrollToTop: true,
+  data: () => {
+    return {
+      // @todo
+    };
+  },
+  computed: {
+    project() {
+      return this.$store.getters.getProjectById(this.$route.params.id);
+    },
+  },
+  mounted() {
+    feather.replace();
+  },
+  updated() {
+    feather.replace();
+  },
+};
+</script>
 
 <style lang="scss" scoped></style>

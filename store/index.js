@@ -57,18 +57,18 @@ export const state = () => ({
         {
           id: 1,
           title: "Education Dashboard",
-          img: "../images/education_1.png",
-        },
-        {
-          id: 2,
-          title: "Education ",
-          img: "../images/education_2.png",
+          img: "../images/education_4.png",
         },
         {
           id: 3,
-          title: "Education ",
-          img: "../images/education_3.png",
+          title: "Education Teacher",
+          img: "../images/education_1.png",
         },
+        {
+          id: 4,
+          title: "Education Student",
+          img: "../images/education_3.png",
+        }
       ],
       technologies: [
         "Canva",

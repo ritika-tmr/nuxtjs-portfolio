@@ -50,7 +50,7 @@
         >
           <!-- Dark mode icon -->
           <svg
-            v-if="$colorMode.value == 'light'"
+            v-if="$colorMode.value === 'light'"
             xmlns="http://www.w3.org/2000/svg"
             class="
               text-liText-ternary-dark
@@ -136,6 +136,22 @@
       <div
         class="hidden sm:flex justify-between items-center flex-col md:flex-row"
       >
+        <!-- Hire me Button -->
+        <button
+          class="
+            sm:ml-6
+            bg-blue-400
+            dark:bg-primary-light
+            px-2
+            py-2
+            shadow-sm
+            rounded-lg
+            text-white
+            dark:text-black
+          "
+          @click="openEmail"
+        >Hire me</button>
+<!--        <UButton color="indigo" variant="soft" @click="openEmail">Hire me</UButton>-->
         <!-- Theme switcher large screen -->
         <button
           @click="themeSwitcher"
@@ -152,7 +168,7 @@
         >
           <!-- Dark mode icon -->
           <svg
-            v-if="$colorMode.value == 'light'"
+            v-if="$colorMode.value === 'light'"
             xmlns="http://www.w3.org/2000/svg"
             class="
               text-liText-ternary-dark
@@ -192,23 +208,13 @@
         </button>
       </div>
     </div>
-
-    <!-- Hire me modal -->
-    <HireMeModal
-      :showModal="showModal"
-      :modal="modal"
-      aria-modal="Hire Me Modal"
-    />
   </nav>
 </template>
 <script>
-import { mapState } from "vuex";
-import HireMeModal from "../HireMeModal.vue";
 import AppNavigation from "./AppNavigation.vue";
 
 export default {
   components: {
-    HireMeModal,
     AppNavigation,
   },
   data: () => {
@@ -236,6 +242,15 @@ export default {
         this.modal = true;
       }
     },
+    openEmail() {
+      const emailAddress = 'ritika.tamrakar@outlook.com';
+      const subject = 'Job Opportunity';
+      const body = 'Hi Ritika,';
+
+      const emailLink = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      window.open(emailLink, '_blank');
+    }
   },
 };
 </script>

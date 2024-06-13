@@ -96,7 +96,7 @@ export const state = () => ({
       projectImages: [
         {
           id: 1,
-          title: "Education Dashboard",
+          title: "Portfolio UI",
           img: "../images/Portfolio.png",
         },
       ],
@@ -113,6 +113,106 @@ export const state = () => ({
           id: 1,
           details:
           "A portfolio designed to showcase my projects and provide insights into who I am as a professional. Through carefully curated project displays, visitors can explore my expertise, creativity, and problem-solving abilities across various domains. Accompanied by personal anecdotes and insights, the \"About Me\" section offers a glimpse into my journey, passions, and aspirations, enriching the visitor's understanding of the person behind the projects. With a blend of visual appeal and informative content, the portfolio serves as a compelling narrative of my skills, experiences, and accomplishments, aimed at leaving a lasting impression on potential collaborators and employers alike."
+        },
+      ],
+    },
+    {
+      id: "260d1271-f1f2-4bc9-a5eb-05a89c8cccde",
+      title: "FilmVault",
+      category: "Web Application",
+      img: "images/FilmVault.png",
+      publishDate: "May , 2024",
+      tag: "UI / Frontend / Backend",
+      objectivesTitle: "Objective",
+      objectivesDetails:
+        "FilmVault presents a user-friendly platform where users have access to various movies of all time. The website will give users all movie essential information, reviews, ratings, and trailers, all in one centralized location.",
+      techTitle: "Tools & Technologies",
+      detailsTitle: "Details",
+      projectImages: [
+        {
+          id: 1,
+          title: "FilmVault Homepage",
+          img: "../images/FilmVault_1.png",
+        },
+        {
+          id: 1,
+          title: "FilmVault Movie Details",
+          img: "../images/FilmVault_2.png",
+        },
+        {
+          id: 1,
+          title: "FilmVault Search Page",
+          img: "../images/FilmVault_3.png",
+        },
+        {
+          id: 1,
+          title: "FilmVault Login Page",
+          img: "../images/FilmVault_4.png",
+        },
+      ],
+      technologies: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "PHP",
+        "Ajax",
+        "Bootstrap",
+        "Figma",
+        "SQL"
+      ],
+      projectDetails: [
+        {
+          id: 1,
+          details:
+          "This project involved developing a dynamic web application adding reviews and displaying movie information to individual users. Utilizing PHP for server-side scripting and JavaScript for client-side interactivity, the application securely handles user authentication and session management. User-specific data such as watchlists and movie ratings are stored in a MySQL database, while localStorage provides quick client-side data access. The application dynamically retrieves and displays movie information, including average ratings, using AJAX for seamless content updates. This enhances user experience by ensuring smooth interactions and personalized content delivery."
+        },
+      ],
+    },
+    {
+      id: "260d1271-f1f2-4bc9-a5eb-05a89c8cccds",
+      title: "Woodenkits",
+      category: "Website",
+      img: "images/Woodenkits_1.png",
+      publishDate: "June , 2024",
+      tag: "UI / Frontend",
+      objectivesTitle: "Objective",
+      objectivesDetails:
+        "This project is a static website for a company specializing in wooden educational kits, crafted using HTML, CSS, and JavaScript. The website aims to showcase the company's products and services, providing a seamless user experience and informative content about their offerings.",
+      techTitle: "Tools & Technologies",
+      detailsTitle: "Details",
+      projectImages: [
+        {
+          id: 1,
+          title: "Hero section",
+          img: "../images/Woodenkits_1.png",
+        },
+        {
+          id: 1,
+          title: "About section",
+          img: "../images/Woodenkits_2.png",
+        },
+        {
+          id: 1,
+          title: "Products section",
+          img: "../images/Woodenkits_3.png",
+        },
+        {
+          id: 1,
+          title: "Contact section",
+          img: "../images/Woodenkits_4.png",
+        },
+      ],
+      technologies: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Bootstrap",
+      ],
+      projectDetails: [
+        {
+          id: 1,
+          details:
+          "This project is a static website for a company specializing in wooden educational kits, built using HTML, CSS, and JavaScript. It showcases the company's products and services, featuring an engaging homepage, detailed service descriptions, and informative product highlights. The responsive design ensures compatibility across various devices, while JavaScript enhances interactivity with dynamic content and interactive forms. The website provides a seamless user experience, reflecting the company's commitment to quality and education. Hosted on platforms like GitHub Pages, it delivers fast load times and easy scalability."
         },
       ],
     },

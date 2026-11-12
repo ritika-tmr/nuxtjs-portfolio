@@ -1,201 +1,238 @@
-/*==
- * Nuxt.js & TailwindCSS Portfolio Main CSS File
- * Powered by: @realstoman
-*/
+/*
+ * Ritika Tamrakar portfolio
+ * Soft paper, bridal red, a little gold. Newari details used lightly.
+ */
 
-/* Fonts */
-@font-face {
-  font-family: "GeneralSans-Variable";
-  src: url("./fonts/GeneralSans-Variable.woff2") format("woff2"),
-    url("./fonts/GeneralSans-Variable.woff") format("woff"),
-    url("./fonts/GeneralSans-Variable.ttf") format("truetype");
-  font-weight: 200 700;
-  font-display: swap;
-  font-style: normal;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #fbf8f3;
+  --paper-2: #f4ede2;
+  --surface: #ffffff;
+  --ink: #2b2522;
+  --muted: #6f655e;
+  --line: #e6dccd;
+  --bridal: #a6192e;
+  --bridal-soft: #f3dcdc;
+  --on-bridal: #fff6ec;
+  --gold: #c9a227;
+  --gold-soft: #f6ecca;
+  --gold-ink: #7a6110;
+  --brick: #b5563a;
+  --brick-soft: #ebc9b8;
+  --sage: #8fa98a;
+  --sage-soft: #e3ecdd;
+  --mist: #dce8ee;
+  --hill: #b9cdb2;
+  --wood: #422313;
+  --wood-dark: #2a160b;
+  --wood-carve: #7a4a2e;
+  --dough: #fff8ea;
+  --dough-shade: #e8dfd0;
+  --plate: #f6d06e;
+  --plate-rim: #e3b44e;
+  --footer: #2b2522;
+  --on-footer: #fbf8f3;
+  --lang: #2f5d8a;
+  /* plain white for illustration backgrounds; stays white in dark mode */
+  --white: #ffffff;
 }
 
-.font-general-variable {
-  font-family: "GeneralSans-Variable";
+.dark {
+  --paper: #1d1917;
+  --paper-2: #2a2421;
+  --surface: #28221f;
+  --ink: #f3ece3;
+  --muted: #b8ada3;
+  --line: #40362f;
+  --bridal: #d9475d;
+  --bridal-soft: #4a2328;
+  --on-bridal: #fff6ec;
+  --gold: #d9b44a;
+  --gold-soft: #3f3520;
+  --gold-ink: #e8cd7a;
+  --brick: #cf7a5c;
+  --brick-soft: #4a2e24;
+  --sage: #9dba97;
+  --sage-soft: #263028;
+  --mist: #2c3940;
+  --hill: #3e5240;
+  --wood: #422313;
+  --wood-dark: #1a0d06;
+  --wood-carve: #8a5a3c;
+  --dough: #f6eedf;
+  --dough-shade: #cfc3b0;
+  --plate: #c9a23a;
+  --plate-rim: #a8842a;
+  --footer: #120f0e;
+  --on-footer: #f3ece3;
+  --lang: #6e9bc9;
+  color-scheme: dark;
 }
 
-@font-face {
-  font-family: "GeneralSans-VariableItalic";
-  src: url("./fonts/GeneralSans-VariableItalic.woff2") format("woff2"),
-    url("./fonts/GeneralSans-VariableItalic.woff") format("woff"),
-    url("./fonts/GeneralSans-VariableItalic.ttf") format("truetype");
-  font-weight: 200 700;
-  font-display: swap;
-  font-style: italic;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper text-ink font-body antialiased;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+  }
+  .font-display {
+    letter-spacing: 0.02em;
+  }
+  /* highlighted words in headings stay upright (marked by colour and the
+     squiggle instead of a slant) */
+  h1 em,
+  h2 em,
+  h3 em,
+  .font-display em {
+    font-style: normal;
+  }
+  :focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
 }
 
-.font-general-variable-italic {
-  font-family: "GeneralSans-VariableItalic";
+@layer components {
+  /* Tactile pill buttons: they sink when pressed */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-bold text-[15px] transition-transform duration-150;
+  }
+  .btn-red {
+    background: var(--bridal);
+    color: var(--on-bridal);
+    box-shadow: 0 5px 0 color-mix(in srgb, var(--bridal) 55%, #000);
+  }
+  .btn-red:hover {
+    transform: translateY(-1px);
+  }
+  .btn-red:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 color-mix(in srgb, var(--bridal) 55%, #000);
+  }
+  .btn-ghost {
+    border: 1.5px solid var(--line);
+    color: var(--ink);
+  }
+  .btn-ghost:hover {
+    border-color: var(--ink);
+  }
+
+  /* Hand-drawn underline that sits under a link or word */
+  .squiggle {
+    position: relative;
+    display: inline-block;
+  }
+  .squiggle::after {
+    content: "";
+    position: absolute;
+    left: -2%;
+    right: -2%;
+    bottom: -0.32em;
+    height: 0.38em;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 18' preserveAspectRatio='none'><path d='M2 10 C 25 2, 45 16, 70 9 S 115 2, 140 10 S 180 15, 198 6' fill='none' stroke='black' stroke-width='4' stroke-linecap='round'/></svg>")
+      center / 100% 100% no-repeat;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 18' preserveAspectRatio='none'><path d='M2 10 C 25 2, 45 16, 70 9 S 115 2, 140 10 S 180 15, 198 6' fill='none' stroke='black' stroke-width='4' stroke-linecap='round'/></svg>")
+      center / 100% 100% no-repeat;
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  /* for big headline words: sits closer so it clears the next line */
+  .squiggle-tight::after {
+    bottom: -0.04em;
+    height: 0.2em;
+  }
+  .squiggle-gold::after {
+    background: var(--gold);
+  }
+  .squiggle-brick::after {
+    background: var(--brick);
+  }
+  .squiggle-hover::after {
+    transform: scaleX(0);
+  }
+  .squiggle-hover:hover::after,
+  .squiggle-hover.is-active::after {
+    transform: scaleX(1);
+  }
+
+  .hand-note {
+    @apply font-hand text-brick;
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
 }
 
-@font-face {
-  font-family: "GeneralSans-Extralight";
-  src: url("./fonts/GeneralSans-Extralight.woff2") format("woff2"),
-    url("./fonts/GeneralSans-Extralight.woff") format("woff"),
-    url("./fonts/GeneralSans-Extralight.ttf") format("truetype");
-  font-weight: 200;
-  font-display: swap;
-  font-style: normal;
+/* Ankhi Jhyal lattice screen. Lifts away once an image has loaded. */
+.lattice-screen {
+  background-color: color-mix(in srgb, var(--wood-dark) 55%, transparent);
+  /* small holes (~5px) between thick wooden bars (~4px) */
+  background-image: repeating-linear-gradient(45deg, transparent 0 5px, var(--wood) 5px 9px),
+    repeating-linear-gradient(-45deg, transparent 0 5px, var(--wood) 5px 9px);
+  border-top: 5px solid var(--wood);
+  transition: transform 1s cubic-bezier(0.6, 0, 0.3, 1);
+}
+.lattice-screen.is-lifted {
+  transform: translateY(-105%);
 }
 
-.font-general-extralight {
-  font-family: "GeneralSans-Extralight";
+/* Page content between routes (the red wave is PageTurn.vue) */
+.chapter-enter-active,
+.chapter-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.chapter-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.chapter-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 
-@font-face {
-  font-family: "GeneralSans-ExtralightItalic";
-  src: url("./fonts/GeneralSans-ExtralightItalic.woff2") format("woff2"),
-    url("./fonts/GeneralSans-ExtralightItalic.woff") format("woff"),
-    url("./fonts/GeneralSans-ExtralightItalic.ttf") format("truetype");
-  font-weight: 200;
-  font-display: swap;
-  font-style: italic;
+/* Gentle reveal for sections as they scroll in (see useReveal) */
+.reveal {
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.is-hidden {
+  opacity: 0;
+  transform: translateY(28px);
 }
 
-.font-general-extralight-italic {
-  font-family: "GeneralSans-ExtralightItalic";
+.float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+@keyframes float-slow {
+  50% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
 }
 
-@font-face {
-  font-family: "GeneralSans-Light";
-  src: url("./fonts/GeneralSans-Light.woff2") format("woff2"),
-    url("./fonts/GeneralSans-Light.woff") format("woff"),
-    url("./fonts/GeneralSans-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
-
-.font-general-light {
-  font-family: "GeneralSans-Light";
-}
-
-@font-face {
-  font-family: "GeneralSans-LightItalic";
-  src: url("./fonts/GeneralSans-LightItalic.woff2") format("woff2"),
-    url("./fonts/GeneralSans-LightItalic.woff") format("woff"),
-    url("./fonts/GeneralSans-LightItalic.ttf") format("truetype");
-  font-weight: 300;
-  font-display: swap;
-  font-style: italic;
-}
-
-.font-general-light-italic {
-  font-family: "GeneralSans-LightItalic";
-}
-
-@font-face {
-  font-family: "GeneralSans-Regular";
-  src: url("./fonts/GeneralSans-Regular.woff2") format("woff2"),
-    url("./fonts/GeneralSans-Regular.woff") format("woff"),
-    url("./fonts/GeneralSans-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
-
-.font-general-regular {
-  font-family: "GeneralSans-Regular";
-}
-
-@font-face {
-  font-family: "GeneralSans-Italic";
-  src: url("./fonts/GeneralSans-Italic.woff2") format("woff2"),
-    url("./fonts/GeneralSans-Italic.woff") format("woff"),
-    url("./fonts/GeneralSans-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-display: swap;
-  font-style: italic;
-}
-
-.font-general-italic {
-  font-family: "GeneralSans-Italic";
-}
-
-@font-face {
-  font-family: "GeneralSans-Medium";
-  src: url("./fonts/GeneralSans-Medium.woff2") format("woff2"),
-    url("./fonts/GeneralSans-Medium.woff") format("woff"),
-    url("./fonts/GeneralSans-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-
-.font-general-medium {
-  font-family: "GeneralSans-Medium";
-}
-
-@font-face {
-  font-family: "GeneralSans-MediumItalic";
-  src: url("./fonts/GeneralSans-MediumItalic.woff2") format("woff2"),
-    url("./fonts/GeneralSans-MediumItalic.woff") format("woff"),
-    url("./fonts/GeneralSans-MediumItalic.ttf") format("truetype");
-  font-weight: 500;
-  font-display: swap;
-  font-style: italic;
-}
-
-.font-general-medium-italic {
-  font-family: "GeneralSans-MediumItalic";
-}
-
-@font-face {
-  font-family: "GeneralSans-Semibold";
-  src: url("./fonts/GeneralSans-Semibold.woff2") format("woff2"),
-    url("./fonts/GeneralSans-Semibold.woff") format("woff"),
-    url("./fonts/GeneralSans-Semibold.ttf") format("truetype");
-  font-weight: 600;
-  font-display: swap;
-  font-style: normal;
-}
-
-.font-general-semibold {
-  font-family: "GeneralSans-Semibold";
-}
-
-@font-face {
-  font-family: "GeneralSans-SemiboldItalic";
-  src: url("./fonts/GeneralSans-SemiboldItalic.woff2") format("woff2"),
-    url("./fonts/GeneralSans-SemiboldItalic.woff") format("woff"),
-    url("./fonts/GeneralSans-SemiboldItalic.ttf") format("truetype");
-  font-weight: 600;
-  font-display: swap;
-  font-style: italic;
-}
-
-.font-general-semibold-italic {
-  font-family: "GeneralSans-SemiboldItalic";
-}
-
-@font-face {
-  font-family: "GeneralSans-Bold";
-  src: url("./fonts/GeneralSans-Bold.woff2") format("woff2"),
-    url("./fonts/GeneralSans-Bold.woff") format("woff"),
-    url("./fonts/GeneralSans-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
-
-.font-general-bold {
-  font-family: "GeneralSans-Bold";
-}
-
-@font-face {
-  font-family: "GeneralSans-BoldItalic";
-  src: url("./fonts/GeneralSans-BoldItalic.woff2") format("woff2"),
-    url("./fonts/GeneralSans-BoldItalic.woff") format("woff"),
-    url("./fonts/GeneralSans-BoldItalic.ttf") format("truetype");
-  font-weight: 700;
-  font-display: swap;
-  font-style: italic;
-}
-
-.font-general-bold-italic {
-  font-family: "GeneralSans-BoldItalic";
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal.is-hidden {
+    opacity: 1;
+    transform: none;
+  }
 }

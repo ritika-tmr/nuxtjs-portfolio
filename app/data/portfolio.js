@@ -1,6 +1,6 @@
 export const state = () => ({
-  projectsHeading: "Projects Portfolio",
-  projectsDescription: "Some of the projects I have successfully completed",
+  projectsHeading: "Things I've made",
+  projectsDescription: "Apps, dashboards and websites, from the first sketch to shipped code.",
   projects: [
     {
       id: "260d1271-f1f2-4bc9-a5eb-05a89c8cccdb",
@@ -217,26 +217,135 @@ export const state = () => ({
       ],
     },
   ],
-  aboutMe: [
+  // Story page: one entry per chapter, in order. `art` picks the vignette in
+  // StoryArt.vue; `tint` is the blob colour behind it.
+  story: [
     {
       id: 1,
-      bio: "Welcome to my web portfolio! My name is Ritika and I am a passionate and skilled Front End Web Developer with expertise in designing and developing user-friendly and visually appealing interfaces. " +
-        "I invite you to explore my portfolio, where you will find a showcase of my work and projects that highlight my proficiency in creating dynamic and responsive web pages.\n" +
-        "\n" +
-        "With a strong background in HTML, CSS/SCSS, and JavaScript, I have successfully designed and implemented Front End User Interface designs for various software projects using frameworks like Angular and Vue. " +
-        "I have a keen eye for detail and a deep understanding of user experience principles, which allows me to create intuitive and engaging interfaces that align with the clients' requirements.\n"
+      when: "childhood, Nepal",
+      title: "Growing up in a woodshop",
+      body: "Weekends at WoodenKits Industry, my family's factory. Sawdust, puzzles, and learning early that how something looks decides whether it sells.",
+      aside: "favourite toy: the offcuts bin",
+      art: "woodshop",
+      tint: "brick",
     },
     {
       id: 2,
-      bio: "Throughout my career, I have collaborated closely with back-end developers and UI/UX teams, working hand in hand to deliver seamless and impactful user experiences. " +
-        "I am adept at fixing bugs, adding minor features, and providing support for existing systems, ensuring their optimal functionality.\n",
+      when: "the family's first designer",
+      title: "Graphic design for the factory",
+      body: "Packaging, catalogues and labels for WoodenKits. My first brief came from my dad, and so did my first round of revisions.",
+      aside: "",
+      art: "design",
+      tint: "gold",
     },
     {
       id: 3,
-      bio: "I invite you to explore my portfolio and witness firsthand how I merge my technical skills, design expertise, and passion for user-centric experiences. " +
-        "I am excited to collaborate on innovative projects and contribute to creating exceptional digital products. Let's connect and discuss how I can help bring your ideas to life!",
+      when: "Beijing, 2015 – 2020",
+      title: "Engineering at BUPT",
+      body: "A Bachelor of Engineering in Computer Science and Technology at Beijing University of Posts and Telecommunications. Learned to code, and to order dumplings with confidence.",
+      aside: "",
+      art: "beijing",
+      tint: "white",
+    },
+    {
+      id: 4,
+      when: "back home, 2020 – 2021",
+      title: "Lockdown and 3ds Max",
+      body: "COVID brought me back to Nepal. I filled the quiet months modelling rooms and objects in 3ds Max.",
+      aside: "pretty, pretty, pretty good renders",
+      art: "render",
+      tint: "sage",
+    },
+    {
+      id: 5,
+      when: "LogiSpark, 2021 – 2023",
+      title: "Frontend developer",
+      body: "Vue, Nuxt and Quasar apps, including Roadmate. Designing screens in Figma, then building and shipping them to real users.",
+      aside: "",
+      art: "frontend",
+      tint: "bridal",
+    },
+    {
+      id: 6,
+      when: "Sydney, 2023 – now",
+      title: "Data, dashboards and delivery",
+      body: "A Master of ICT in Data Analytics at Western Sydney University, and now work as a Data Visualisation Analyst and Project Manager. My team won Optimise in October 2025 for enhancing trust in data storytelling.",
+      aside: "plot twist: I love spreadsheets now",
+      art: "sydney",
+      tint: "white",
     },
   ],
+
+  // Home page "long way round" path
+  journey: [
+    { id: 1, city: "Kathmandu", years: "childhood", line: "A woodshop and a lot of sawdust" },
+    { id: 2, city: "Beijing", years: "2015 – 2020", line: "Engineering at BUPT" },
+    { id: 3, city: "Kathmandu", years: "2020 – 2023", line: "3ds Max, then frontend" },
+    { id: 4, city: "Sydney", years: "2023 – now", line: "Data, dashboards, delivery" },
+  ],
+
+  // Skills mind map. `chapter` links a skill to the story chapter it came from.
+  skills: {
+    branches: [
+      { id: "viz", label: "Data visualisation", color: "--bridal", angle: 60, about: "Turning analysis into charts and dashboards people actually read." },
+      { id: "ana", label: "Analytics", color: "--gold", angle: -60, about: "Querying, cleaning and modelling data before it becomes a chart." },
+      { id: "pm", label: "Project management", color: "--sage", angle: 0, about: "Planning work, keeping stakeholders aligned and shipping on time." },
+      { id: "fe", label: "Frontend", color: "--wood-carve", angle: 180, about: "Building the interfaces: Vue and Nuxt apps, styled with care." },
+      { id: "ux", label: "UI/UX & graphic design", color: "--brick", angle: 120, about: "Where it started: packaging for the family factory, then Figma screens." },
+      { id: "lang", label: "Languages", color: "--lang", angle: -120, about: "The languages I think, work and order dumplings in." },
+    ],
+    leaves: [
+      { branch: "viz", label: "Dashboards", chapter: 6, note: "Building dashboards as a Data Visualisation Analyst." },
+      { branch: "viz", label: "Chart design", chapter: 6, note: "Choosing the right chart, then removing everything it doesn't need." },
+      { branch: "viz", label: "Excel charts", chapter: 6, note: "Quick visuals for stakeholders who live in spreadsheets." },
+      { branch: "ana", label: "SQL", chapter: 6, note: "Pulling and joining the data behind every dashboard." },
+      { branch: "ana", label: "Excel modelling", chapter: 6, note: "Lookups, pivots and what-if models." },
+      { branch: "ana", label: "Data cleaning", chapter: 6, note: "The unglamorous 80% of every analysis." },
+      { branch: "pm", label: "Planning", chapter: 6, note: "Scoping and sequencing work as a Project Manager." },
+      { branch: "pm", label: "Stakeholders", chapter: 6, note: "Keeping clients and teams on the same page." },
+      { branch: "pm", label: "Delivery", chapter: 6, note: "Part of the team that won Optimise in October 2025." },
+      { branch: "fe", label: "HTML", chapter: 3, note: "First learned while studying engineering at BUPT." },
+      { branch: "fe", label: "CSS", chapter: 3, note: "First learned while studying engineering at BUPT." },
+      { branch: "fe", label: "JavaScript", chapter: 3, note: "First learned at BUPT, used daily since." },
+      { branch: "fe", label: "Vue.js", chapter: 5, note: "Main framework at LogiSpark, including the Roadmate app." },
+      { branch: "fe", label: "Nuxt.js", chapter: 5, note: "This portfolio is built with Nuxt." },
+      { branch: "fe", label: "Angular", chapter: 5, note: "Building frontend interfaces with Angular alongside Vue at LogiSpark." },
+      { branch: "fe", label: "TypeScript", chapter: 5, note: "Typed JavaScript for larger Angular and Vue codebases." },
+      { branch: "fe", label: "Tailwind", chapter: 5, note: "Utility-first styling for Nuxt projects." },
+      { branch: "fe", label: "Google Maps API", chapter: 5, note: "Location features in Roadmate." },
+      { branch: "ux", label: "Figma", chapter: 5, note: "Designed Roadmate and other product UIs before building them." },
+      { branch: "ux", label: "Canva", chapter: 2, note: "Quick layouts, including the Adult Education System concepts." },
+      { branch: "ux", label: "3ds Max", chapter: 4, note: "Picked up during lockdown: rooms, objects, renders." },
+      { branch: "ux", label: "Branding", chapter: 2, note: "Labels, catalogues and packaging for WoodenKits." },
+      { branch: "ana", label: "Machine learning basics", chapter: 6, note: "Foundations from the Master of ICT (Data Analytics) at WSU." },
+      { branch: "ana", label: "R", chapter: 6, note: "Statistical analysis during the Master's at WSU." },
+      { branch: "pm", label: "Requirements gathering", chapter: 6, note: "Turning what stakeholders ask for into what the team builds." },
+      { branch: "pm", label: "Documentation & reporting", chapter: 6, note: "Clear write-ups, so decisions don't live in someone's head." },
+      { branch: "pm", label: "Notion", chapter: 6, note: "Notes, docs and plans in one place." },
+      { branch: "pm", label: "Monday.com", chapter: 6, note: "Tracking tasks and timelines with the team." },
+      { branch: "fe", label: "REST APIs", chapter: 5, note: "Connecting Vue apps to backend data at LogiSpark." },
+      { branch: "fe", label: "Accessibility", chapter: 5, note: "Interfaces everyone can use: keyboard, contrast and screen readers." },
+      { branch: "ux", label: "Design systems", chapter: 5, note: "Reusable components and tokens, so screens stay consistent." },
+      { branch: "lang", label: "Nepali", chapter: 1, note: "First language, from home in Nepal." },
+      { branch: "lang", label: "English", chapter: 1, note: "From school in Nepal to study and work in Beijing and Sydney." },
+      { branch: "lang", label: "Mandarin", chapter: 3, note: "Five years in Beijing at BUPT." },
+    ],
+    softs: [
+      { label: "storytelling", joins: ["viz", "ux"], note: "Every chart should say one thing, in words people actually use." },
+      { label: "communication", joins: ["lang", "ana"], note: "Explaining what the data means to people who didn't ask for SQL." },
+      { label: "leadership", joins: ["pm", "viz"], note: "Owning design decisions and guiding a project from brief to delivery." },
+      { label: "attention to detail", joins: ["ux", "fe"], note: "Pixel-level care in the design, and in the data behind the charts." },
+      { label: "teamwork", joins: ["fe", "lang"], note: "Building with developers, designers and clients, not just for them." },
+      { label: "adaptability", joins: ["lang", "fe"], note: "Four cities, three languages and a new framework every few years: picking things up fast is the job." },
+      { label: "problem solving", joins: ["ana", "pm"], note: "Breaking a messy problem into steps, whether it's a bug or a dataset." },
+    ],
+  },
+
+  contact: {
+    email: "ritika.tamrakar@outlook.com",
+    location: "Sydney, NSW, Australia",
+    linkedin: "https://www.linkedin.com/in/ritika-tamrakar/",
+  },
   copyrightDate: new Date().getFullYear(),
   socialProfiles: [
     {
@@ -247,7 +356,7 @@ export const state = () => ({
     },
     {
       id: 2,
-      name: "Linkedin",
+      name: "LinkedIn",
       icon: "linkedin",
       url: "https://www.linkedin.com/in/ritika-tamrakar/",
     },
@@ -255,29 +364,26 @@ export const state = () => ({
   qualifications: [
     {
       id: 1,
-      major: 'Data Analytics',
-      institution: 'Western Sydney University',
-      course: 'Master of Information and Communication Technology',
-      location: 'Sydney, Australia',
-      img: '',
+      major: "Data Analytics",
+      institution: "Western Sydney University",
+      course: "Master of Information and Communication Technology",
+      location: "Sydney, Australia",
     },
     {
       id: 2,
-      major: 'Computer Science and Technology',
-      institution: 'Beijing University of Posts and Telecommunications',
-      course: 'Bachelor of Engineering',
-      location: 'Beijing, China',
-      img: '',
+      major: "Computer Science and Technology",
+      institution: "Beijing University of Posts and Telecommunications",
+      course: "Bachelor of Engineering",
+      location: "Beijing, China",
     },
   ],
   awards: [
     {
       id: 1,
-      title: 'Winner, Optimise',
-      institution: 'Western Sydney University',
-      description: 'Enhancing Trust in Data Storytelling',
-      date: 'October 2025',
+      title: "Winner, Optimise",
+      institution: "Western Sydney University",
+      description: "Enhancing Trust in Data Storytelling",
+      date: "October 2025",
     },
   ],
 });
-

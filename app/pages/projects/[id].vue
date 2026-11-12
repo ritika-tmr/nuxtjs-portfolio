@@ -1,182 +1,102 @@
+<script setup>
+const route = useRoute();
+const { state, getProjectById } = useApp();
+const project = getProjectById(route.params.id);
+
+const next = computed(() => {
+  const list = state.value.projects;
+  const i = list.findIndex((p) => p.id === route.params.id);
+  return i >= 0 ? list[(i + 1) % list.length] : null;
+});
+
+const loaded = reactive({});
+const markLoaded = (k) => (loaded[k] = true);
+const imgRefs = ref([]);
+onMounted(() => {
+  imgRefs.value.forEach((el) => {
+    if (el?.complete && el.naturalWidth) loaded[el.dataset.key] = true;
+  });
+});
+
+const shapes = [
+  "42px 64px 48px 70px / 56px 40px 66px 46px",
+  "64px 40px 70px 48px / 44px 62px 42px 60px",
+  "52px 70px 40px 58px / 62px 48px 58px 40px",
+];
+
+useHead({ title: computed(() => (project.value ? `${project.value.title} · Ritika Tamrakar` : "Project · Ritika Tamrakar")) });
+</script>
+
 <template>
-  <div class="container mx-auto">
-    <!-- Check if there are projects and then load -->
-    <div v-if="project">
-      <!-- Project heading and meta info -->
-      <div>
-        <p
-          class="
-            font-general-medium
-            text-left text-3xl
-            sm:text-4xl
-            font-bold
-            text-primary-dark
-            dark:text-primary-light
-            mt-14
-            sm:mt-20
-            mb-7
-          "
+  <div class="container">
+    <article v-if="project" class="pt-8 sm:pt-12">
+      <NuxtLink to="/projects" class="squiggle squiggle-brick squiggle-hover font-bold">← All projects</NuxtLink>
+
+      <header class="relative mt-8 flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p class="hand-note">{{ project.category }} · {{ project.publishDate.replace(/\s+,/, ",") }}</p>
+          <h1 class="mt-1 text-[clamp(2.6rem,7vw,5.5rem)] leading-none">{{ project.title }}</h1>
+        </div>
+        <p class="max-w-md text-lg text-muted">{{ project.objectivesDetails }}</p>
+      </header>
+
+      <div class="mt-14 grid gap-12 md:grid-cols-2 md:gap-x-14">
+        <figure
+          v-for="(im, i) in project.projectImages"
+          :key="`${im.img}-${i}`"
+          v-reveal="(i % 2) * 120"
+          :class="[i % 2 === 1 ? 'md:mt-24' : '', project.projectImages.length === 1 ? 'md:col-span-2' : '']"
         >
-          {{ project.title }}
-        </p>
-        <div class="flex">
-          <div class="flex items-center mr-10">
-            <i
-              data-feather="clock"
-              class="w-4 h-4 text-ternary-dark dark:text-ternary-light"
-            ></i>
-            <span
-              class="
-                font-general-medium
-                ml-2
-                leading-none
-                text-primary-dark
-                dark:text-primary-light
-              "
-            >{{ project.publishDate }}</span
-            >
+          <div class="relative overflow-hidden bg-paper-2" :style="{ borderRadius: shapes[i % shapes.length] }">
+            <img
+              :ref="(el) => (imgRefs[i] = el)"
+              :data-key="`${im.img}-${i}`"
+              :src="im.img"
+              :alt="`${project.title}: ${im.title}`"
+              loading="lazy"
+              decoding="async"
+              class="block w-full"
+              @load="markLoaded(`${im.img}-${i}`)"
+              @error="markLoaded(`${im.img}-${i}`)"
+            />
+            <div class="lattice-screen absolute inset-0" :class="{ 'is-lifted': loaded[`${im.img}-${i}`] }" aria-hidden="true" />
           </div>
-          <div class="flex items-center">
-            <i
-              data-feather="tag"
-              class="w-4 h-4 text-ternary-dark dark:text-ternary-light"
-            ></i>
-            <span
-              class="
-                font-general-medium
-                ml-2
-                leading-none
-                text-primary-dark
-                dark:text-primary-light
-              "
-            >{{ project.tag }}</span
-            >
-          </div>
+          <figcaption class="hand-note mt-3 px-4 !text-xl !text-muted">{{ im.title }}</figcaption>
+        </figure>
+      </div>
+
+      <div class="mt-20 grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div>
+          <h2 class="text-3xl">Made with</h2>
+          <ul class="mt-4 flex flex-wrap gap-x-5 gap-y-1">
+            <li v-for="t in project.technologies" :key="t" class="font-hand text-2xl text-brick">{{ t.toLowerCase() }}</li>
+          </ul>
+          <p class="mt-6 text-muted">{{ project.tag.trim() }}</p>
+        </div>
+        <div>
+          <h2 class="text-3xl">How it came together</h2>
+          <p v-for="d in project.projectDetails" :key="d.id" class="mt-4 text-lg text-muted">{{ d.details }}</p>
         </div>
       </div>
 
-      <!-- Project gallery -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-10 mt-12">
-        <div
-          class="mb-10 sm:mb-0"
-          v-for="projectImage in project.projectImages"
-          :key="projectImage.id"
-        >
-          <img
-            :src="projectImage.img"
-            class="rounded-xl shadow-lg sm:shadow-none"
-          />
-        </div>
-      </div>
+      <NuxtLink
+        v-if="next && next.id !== project.id"
+        :to="`/projects/${next.id}`"
+        class="group mt-24 flex flex-wrap items-baseline justify-between gap-4 border-t border-line pt-10"
+      >
+        <span class="hand-note">next project</span>
+        <span class="font-display text-4xl font-semibold sm:text-6xl">
+          <span class="squiggle squiggle-gold squiggle-hover">{{ next.title }}</span>
+          <span class="ml-2 inline-block text-bridal transition-transform duration-300 group-hover:translate-x-2">→</span>
+        </span>
+      </NuxtLink>
+    </article>
 
-      <!-- Project info -->
-      <div class="block sm:flex gap-0 sm:gap-10 mt-14">
-        <!-- Single project left section details -->
-        <div class="w-full sm:w-1/3 text-left">
-
-          <!-- Single project objectives -->
-          <div class="mb-7">
-            <p
-              class="
-                font-general-medium
-                text-2xl text-ternary-dark
-                dark:text-ternary-light
-                mb-2
-              "
-            >
-              {{ project.objectivesTitle }}
-            </p>
-            <p
-              class="
-                font-general-regular
-                text-primary-dark
-                dark:text-ternary-light
-              "
-            >
-              {{ project.objectivesDetails }}
-            </p>
-          </div>
-
-          <!-- Single project technologies -->
-          <div class="mb-7">
-            <p
-              class="
-                font-general-medium
-                text-2xl text-ternary-dark
-                dark:text-ternary-light
-                mb-2
-              "
-            >
-              {{ project.techTitle }}
-            </p>
-            <p
-              class="
-                font-general-regular
-                text-primary-dark
-                dark:text-ternary-light
-              "
-            >
-              {{ project.technologies.join(", ") }}
-            </p>
-          </div>
-
-        </div>
-
-        <!-- Single project right section details -->
-        <div class="w-full sm:w-2/3 text-left mt-10 sm:mt-0">
-          <p
-            class="
-              font-general-medium
-              text-primary-dark
-              dark:text-primary-light
-              text-2xl
-              font-bold
-              mb-7
-            "
-          >
-            {{ project.detailsTitle }}
-          </p>
-          <p
-            v-for="projectDetail in project.projectDetails"
-            :key="projectDetail.id"
-            class="
-              font-general-regular
-              mb-5
-              text-lg text-ternary-dark
-              dark:text-ternary-light
-            "
-          >
-            {{ projectDetail.details }}
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Load not found components if no project found -->
-    <div v-else class="font-general-medium container mx-auto text-center">
-      <h1>No projects yet</h1>
+    <div v-else class="flex flex-col items-center py-24 text-center">
+      <YomariPlate class="w-48" />
+      <h1 class="mt-6 text-4xl">This project wandered off.</h1>
+      <p class="mt-3 text-muted">It might have been renamed or moved.</p>
+      <NuxtLink to="/projects" class="btn btn-red mt-8">See all projects</NuxtLink>
     </div>
   </div>
 </template>
-
-<script>
-import feather from "feather-icons";
-import { useApp } from "~/composables/useApp";
-
-export default {
-  setup() {
-    const route = useRoute();
-    const { getProjectById } = useApp();
-    const project = computed(() => getProjectById(route.params.id).value);
-    return { project };
-  },
-  mounted() {
-    feather.replace();
-  },
-  updated() {
-    feather.replace();
-  },
-};
-</script>
-
-<style lang="scss" scoped></style>

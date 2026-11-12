@@ -1,79 +1,41 @@
-<template>
-  <div class="container mx-auto">
-    <div
-      class="
-        pt-20
-        sm:pt-30
-        pb-8
-        mt-20
-        border-t-2 border-primary-light
-        dark:border-secondary-dark
-      "
-    >
-      <!-- Footer social links -->
-      <div class="flex flex-col justify-center items-center mb-12 sm:mb-20">
-        <p
-          class="
-            font-general-semibold
-            text-3xl
-            sm:text-4xl
-            text-primary-dark
-            dark:text-primary-light
-            mb-5
-          "
-        >
-          Follow me
-        </p>
-        <ul class="flex gap-4 sm:gap-8">
-          <a
-            v-for="social in socialProfiles"
-            :key="social.id"
-            :href="social.url"
-            target="__blank"
-            class="
-              text-gray-400
-              hover:text-blue-500
-              dark:hover:text-blue-400
-              cursor-pointer
-              rounded-lg
-              bg-gray-50
-              dark:bg-ternary-dark
-              hover:bg-gray-100
-              shadow-sm
-              p-4
-              duration-500
-            "
-          >
-            <i :data-feather="social.icon" class="w-6 sm:w-8 h-6 sm:h-8"></i>
-          </a>
-        </ul>
-      </div>
-
-      <!-- Footer copyright -->
-      <FooterCopyright />
-    </div>
-  </div>
-</template>
-<script>
-import feather from "feather-icons";
-import FooterCopyright from "./FooterCopyright.vue";
-import { useApp } from "~/composables/useApp";
-import { computed } from "vue";
-export default {
-  components: { FooterCopyright },
-  setup() {
-    const { get } = useApp();
-    const socialProfiles = computed(() => get("socialProfiles").value);
-
-    return { socialProfiles };
-  },
-  mounted() {
-    feather.replace();
-  },
-  updated() {
-    feather.replace();
-  },
-};
+<script setup>
+const { state } = useApp();
+const contact = computed(() => state.value.contact);
+const socials = computed(() => state.value.socialProfiles);
+const year = computed(() => state.value.copyrightDate);
 </script>
 
-<style scoped></style>
+<template>
+  <footer class="relative mt-24 sm:mt-32">
+    <WaveDivider tint="footer" :height="130" class="-mb-px" />
+    <div class="relative isolate overflow-hidden pb-10 pt-6 sm:pt-10" style="background: var(--footer); color: var(--on-footer)">
+      <!-- Red blob with its handwritten note (desktop); on phones the note sits under the buttons -->
+      <div class="pointer-events-none absolute right-0 top-6 hidden h-80 w-[28rem] items-center justify-center lg:flex xl:right-8" aria-hidden="true">
+        <Wash :shape="2" tint="bridal" :opacity="0.35" class="inset-0 h-full w-full" />
+        <p class="relative max-w-[15rem] -rotate-6 text-center font-hand text-[2rem] leading-tight text-on-bridal">
+          replies faster than my dashboards refresh
+        </p>
+      </div>
+      <div class="container relative">
+        <h2 class="max-w-3xl text-4xl leading-[1.05] sm:text-6xl">
+          Have a dataset that needs a <em class="text-gold">story</em>? Let's talk.
+        </h2>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a :href="`mailto:${contact.email}`" class="btn btn-red">Say hello</a>
+          <a :href="contact.linkedin" target="_blank" rel="noopener" class="btn border border-current">LinkedIn</a>
+          <p class="hand-note ml-1 rotate-[-3deg] !text-gold sm:ml-8 lg:sr-only">replies faster than my dashboards refresh</p>
+        </div>
+
+        <div class="mt-16 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm opacity-75 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {{ year }} Ritika Tamrakar · made with Nuxt and a lot of chiya</p>
+          <ul class="flex gap-5">
+            <li v-for="s in socials" :key="s.id">
+              <a :href="s.url" target="_blank" rel="noopener" class="squiggle squiggle-gold squiggle-hover">{{ s.name }}</a>
+            </li>
+            <li><a :href="`mailto:${contact.email}`" class="squiggle squiggle-gold squiggle-hover">Email</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>

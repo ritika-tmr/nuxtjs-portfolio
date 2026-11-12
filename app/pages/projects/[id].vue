@@ -161,17 +161,14 @@
 
 <script>
 import feather from "feather-icons";
+import { useApp } from "~/composables/useApp";
+
 export default {
-  scrollToTop: true,
-  data: () => {
-    return {
-      // @todo
-    };
-  },
-  computed: {
-    project() {
-      return this.$store.getters.getProjectById(this.$route.params.id);
-    },
+  setup() {
+    const route = useRoute();
+    const { getProjectById } = useApp();
+    const project = computed(() => getProjectById(route.params.id).value);
+    return { project };
   },
   mounted() {
     feather.replace();

@@ -59,19 +59,22 @@
             sm:py-3
             rounded-full
             bg-slate-50
+            dark:bg-ternary-dark
             focus:ring-1 focus:ring-blue-900
             hover:bg-blue-400
+            dark:hover:bg-blue-500
             text-ternary-dark
+            dark:text-primary-light
             hover:text-white
             duration-500
           "
-          aria-label="Download Resume"
+          aria-label="More About Me"
         >
-          <span class="text-sm sm:text-lg font-general-medium duration-100 underline underline-offset-4 ml-3 dark:text-primary-light"
+          <span class="text-sm sm:text-lg font-general-medium duration-100 underline underline-offset-4 ml-3"
           >More About Me</span>
           <i
             data-feather="arrow-right"
-            class="ml-0 sm:ml-1 mr-2 sm:mr-3 w-5 sm:w-6 duration-100 dark:text-primary-light"
+            class="ml-0 sm:ml-1 mr-2 sm:mr-3 w-5 sm:w-6 duration-100"
           ></i>
           </NuxtLink>
       </div>
@@ -79,12 +82,7 @@
 
     <!-- Banner right illustration -->
     <div class="w-full md:w-2/3 text-right float-right">
-      <img
-        v-if="this.$colorMode.value === 'dark'"
-        src="~/static/main-design.png"
-        alt="Developer Dark"
-      />
-      <img v-else src="~/static/main-design.png" alt="Developer Light" />
+      <img src="/main-design.png" alt="Illustration of a developer at work" />
     </div>
   </section>
 </template>

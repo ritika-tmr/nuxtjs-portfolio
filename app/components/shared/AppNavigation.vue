@@ -110,8 +110,8 @@ export default {
 </script>
 
 <style>
-#nav .nuxt-link-exact-active,
-#nav .nuxt-link-active {
+#nav .router-link-exact-active,
+#nav .router-link-active {
   @apply text-blue-700 dark:text-blue-400;
 }
 </style>

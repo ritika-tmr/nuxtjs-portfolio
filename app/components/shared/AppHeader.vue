@@ -17,17 +17,15 @@
         <div>
           <NuxtLink to="/">
             <img
-              v-if="$colorMode.value === 'dark'"
-              src="~/static/images/ritikaLogoWhite1_1.png"
-              class="w-64"
+              src="/images/ritikaLogoWhite1_1.png"
+              class="w-64 hidden dark:block"
               alt="Light Logo"
             />
 
             <img
-              v-else
-              src="~/static/images/ritikaLogo_1.png"
+              src="/images/ritikaLogo_1.png"
               alt="Color Logo"
-              class="w-64"
+              class="w-64 block dark:hidden"
             />
           </NuxtLink>
         </div>
@@ -35,6 +33,7 @@
         <!-- Theme switcher small screen -->
         <button
           @click="themeSwitcher"
+          aria-label="Toggle dark mode"
           class="
             sm:hidden
             ml-8
@@ -50,13 +49,11 @@
         >
           <!-- Dark mode icon -->
           <svg
-            v-if="$colorMode.value === 'light'"
             xmlns="http://www.w3.org/2000/svg"
             class="
-              text-liText-ternary-dark
+              dark:hidden
+              text-ternary-dark
               hover:text-gray-400
-              dark:text-liText-ternary-light
-              dark:hover:text-liBorder-primary-light
               w-6
               h-6
             "
@@ -73,9 +70,8 @@
           </svg>
           <!-- Light mode icon -->
           <svg
-            v-else
             xmlns="http://www.w3.org/2000/svg"
-            class="text-gray-200 hover:text-gray-50 w-6 h-6"
+            class="hidden dark:block text-gray-200 hover:text-gray-50 w-6 h-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -140,21 +136,32 @@
         <button
           class="
             sm:ml-6
-            bg-blue-400
-            dark:bg-primary-light
-            px-2
+            bg-blue-500
+            hover:bg-blue-600
+            dark:bg-blue-500
+            dark:hover:bg-blue-400
+            px-4
             py-2
             shadow-sm
             rounded-lg
             text-white
-            dark:text-black
+            font-general-medium
+            duration-300
+            focus:outline-none
+            focus-visible:ring-2
+            focus-visible:ring-blue-300
+            focus-visible:ring-offset-2
+            focus-visible:ring-offset-secondary-light
+            dark:focus-visible:ring-offset-primary-dark
           "
+          aria-label="Hire me"
           @click="openEmail"
         >Hire me</button>
 <!--        <UButton color="indigo" variant="soft" @click="openEmail">Hire me</UButton>-->
         <!-- Theme switcher large screen -->
         <button
           @click="themeSwitcher"
+          aria-label="Toggle dark mode"
           class="
             sm:ml-6
             bg-primary-light
@@ -168,13 +175,11 @@
         >
           <!-- Dark mode icon -->
           <svg
-            v-if="$colorMode.value === 'light'"
             xmlns="http://www.w3.org/2000/svg"
             class="
-              text-liText-ternary-dark
+              dark:hidden
+              text-ternary-dark
               hover:text-gray-400
-              dark:text-liText-ternary-light
-              dark:hover:text-liBorder-primary-light
               w-6
               h-6
             "
@@ -191,9 +196,8 @@
           </svg>
           <!-- Light mode icon -->
           <svg
-            v-else
             xmlns="http://www.w3.org/2000/svg"
-            class="text-gray-200 hover:text-gray-50 w-6 h-6"
+            class="hidden dark:block text-gray-200 hover:text-gray-50 w-6 h-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

@@ -55,18 +55,17 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
 import feather from "feather-icons";
 import FooterCopyright from "./FooterCopyright.vue";
+import { useApp } from "~/composables/useApp";
+import { computed } from "vue";
 export default {
   components: { FooterCopyright },
-  data: () => {
-    return {
-      // Todo
-    };
-  },
-  computed: {
-    ...mapState(["copyrightDate", "socialProfiles"]),
+  setup() {
+    const { get } = useApp();
+    const socialProfiles = computed(() => get("socialProfiles").value);
+
+    return { socialProfiles };
   },
   mounted() {
     feather.replace();

@@ -6,7 +6,7 @@ export const state = () => ({
       id: "260d1271-f1f2-4bc9-a5eb-05a89c8cccdb",
       title: "Roadmate",
       category: "Web/Mobile Application",
-      img: "images/Roadmate-Front-Page.png",
+      img: "/images/Roadmate-Front-Page.png",
       publishDate: "Nov, 2023",
       tag: "UI / Frontend",
       objectivesTitle: "Objective",
@@ -18,12 +18,12 @@ export const state = () => ({
         {
           id: 1,
           title: "Dashboard UI",
-          img: "../images/Roadmate-Details-1.png",
+          img: "/images/Roadmate-Details-1.png",
         },
         {
           id: 2,
           title: "Details UI",
-          img: "../images/Roadmate-Details-2.png",
+          img: "/images/Roadmate-Details-2.png",
         },
       ],
       technologies: [
@@ -45,7 +45,7 @@ export const state = () => ({
       id: "260d1271-f1f2-4bc9-a5eb-05a89c8cccdc",
       title: "Adult Education System",
       category: "Web Application",
-      img: "images/education_4.png",
+      img: "/images/education_4.png",
       publishDate: "April, 2023",
       tag: "UI/UX Design ",
       objectivesTitle: "Objective",
@@ -57,17 +57,17 @@ export const state = () => ({
         {
           id: 1,
           title: "Education Dashboard",
-          img: "../images/education_4.png",
+          img: "/images/education_4.png",
         },
         {
           id: 3,
           title: "Education Teacher",
-          img: "../images/education_1.png",
+          img: "/images/education_1.png",
         },
         {
           id: 4,
           title: "Education Student",
-          img: "../images/education_3.png",
+          img: "/images/education_3.png",
         }
       ],
       technologies: [
@@ -85,7 +85,7 @@ export const state = () => ({
       id: "260d1271-f1f2-4bc9-a5eb-05a89c8cccdy",
       title: "Portfolio",
       category: "Website",
-      img: "images/Portfolio.png",
+      img: "/images/Portfolio.png",
       publishDate: "Nov , 2023",
       tag: "UI / Frontend",
       objectivesTitle: "Objective",
@@ -97,7 +97,7 @@ export const state = () => ({
         {
           id: 1,
           title: "Portfolio UI",
-          img: "../images/Portfolio.png",
+          img: "/images/Portfolio.png",
         },
       ],
       technologies: [
@@ -120,7 +120,7 @@ export const state = () => ({
       id: "260d1271-f1f2-4bc9-a5eb-05a89c8cccde",
       title: "FilmVault",
       category: "Web Application",
-      img: "images/FilmVault.png",
+      img: "/images/FilmVault.png",
       publishDate: "May , 2024",
       tag: "UI / Frontend / Backend",
       objectivesTitle: "Objective",
@@ -132,22 +132,22 @@ export const state = () => ({
         {
           id: 1,
           title: "FilmVault Homepage",
-          img: "../images/FilmVault_1.png",
+          img: "/images/FilmVault_1.png",
         },
         {
           id: 1,
           title: "FilmVault Movie Details",
-          img: "../images/FilmVault_2.png",
+          img: "/images/FilmVault_2.png",
         },
         {
           id: 1,
           title: "FilmVault Search Page",
-          img: "../images/FilmVault_3.png",
+          img: "/images/FilmVault_3.png",
         },
         {
           id: 1,
           title: "FilmVault Login Page",
-          img: "../images/FilmVault_4.png",
+          img: "/images/FilmVault_4.png",
         },
       ],
       technologies: [
@@ -172,7 +172,7 @@ export const state = () => ({
       id: "260d1271-f1f2-4bc9-a5eb-05a89c8cccds",
       title: "Woodenkits",
       category: "Website",
-      img: "images/Woodenkits_1.png",
+      img: "/images/Woodenkits_1.png",
       publishDate: "June , 2024",
       tag: "UI / Frontend",
       objectivesTitle: "Objective",
@@ -184,22 +184,22 @@ export const state = () => ({
         {
           id: 1,
           title: "Hero section",
-          img: "../images/Woodenkits_1.png",
+          img: "/images/Woodenkits_1.png",
         },
         {
           id: 1,
           title: "About section",
-          img: "../images/Woodenkits_2.png",
+          img: "/images/Woodenkits_2.png",
         },
         {
           id: 1,
           title: "Products section",
-          img: "../images/Woodenkits_3.png",
+          img: "/images/Woodenkits_3.png",
         },
         {
           id: 1,
           title: "Contact section",
-          img: "../images/Woodenkits_4.png",
+          img: "/images/Woodenkits_4.png",
         },
       ],
       technologies: [
@@ -257,7 +257,7 @@ export const state = () => ({
       id: 1,
       major: 'Data Analytics',
       institution: 'Western Sydney University',
-      course: 'Masters in Information and Communication Technology',
+      course: 'Master of Information and Communication Technology',
       location: 'Sydney, Australia',
       img: '',
     },
@@ -265,23 +265,19 @@ export const state = () => ({
       id: 2,
       major: 'Computer Science and Technology',
       institution: 'Beijing University of Posts and Telecommunications',
-      course: 'Bachelors of Engineering',
+      course: 'Bachelor of Engineering',
       location: 'Beijing, China',
       img: '',
     },
-  ]
+  ],
+  awards: [
+    {
+      id: 1,
+      title: 'Winner, Optimise',
+      institution: 'Western Sydney University',
+      description: 'Enhancing Trust in Data Storytelling',
+      date: 'October 2025',
+    },
+  ],
 });
 
-export const getters = {
-  getProjectById: (state) => (id) => {
-    return state.projects.find((project) => project.id === id);
-  },
-};
-
-export const mutations = {
-  // @todo
-};
-
-export const actions = {
-  // @todo
-};

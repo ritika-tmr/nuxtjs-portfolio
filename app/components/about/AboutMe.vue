@@ -2,7 +2,7 @@
   <div class="block sm:flex sm:gap-10 mt-10 sm:mt-20">
     <!-- About profile image -->
     <div class="w-full sm:w-1/4 mb-7 sm:mb-0">
-      <img src="~/static/displayPicture.jpg" class="rounded-lg w-96" alt="" />
+      <img src="/displayPicture.jpg" class="rounded-lg w-96" alt="" />
     </div>
 
     <!-- About details -->
@@ -24,7 +24,8 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { useApp } from "~/composables/useApp";
+import { computed } from "vue";
 
 export default {
   data: () => {
@@ -32,8 +33,10 @@ export default {
       // @todo
     };
   },
-  computed: {
-    ...mapState(["aboutMe"]),
+  setup() {
+    const { get } = useApp();
+    const aboutMe = computed(() => get("aboutMe").value);
+    return { aboutMe };
   },
 };
 </script>

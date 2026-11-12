@@ -5,10 +5,8 @@
     <!-- App header -->
     <AppHeader />
 
-    <!-- Render contents with transition -->
-    <transition name="fade" mode="out-in">
-      <Nuxt />
-    </transition>
+    <!-- Page content (fade transition configured via app.pageTransition) -->
+    <slot />
 
     <!-- App footer -->
     <AppFooter />
@@ -39,10 +37,6 @@ import AppHeader from "../components/shared/AppHeader.vue";
 import AppFooter from "../components/shared/AppFooter.vue";
 import BackToTop from "../components/BackToTop.vue";
 export default {
-  data: () => {
-    return {
-    };
-  },
   mounted() {
     feather.replace();
   },
@@ -51,13 +45,6 @@ export default {
 </script>
 
 <style>
-.vue-back-to-top {
-  @apply p-2 sm:p-4 bg-blue-500 hover:bg-blue-600 text-white;
-  border-radius: 50%;
-  font-size: 22px;
-  line-height: 22px;
-}
-
 .fade-enter-active {
   animation: coming 0.4s;
   animation-delay: 0.2s;

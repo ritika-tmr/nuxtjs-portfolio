@@ -1,46 +1,39 @@
-export default {
-  // Target: https://go.nuxtjs.dev/config-target
-  target: "static",
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  compatibilityDate: "2025-07-15",
+
   colorMode: {
     classSuffix: "",
   },
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    title: "Ritika's Portfolio",
-    htmlAttrs: {
-      lang: "en",
+  app: {
+    // Page transition (styles live in app/layouts/default.vue)
+    pageTransition: { name: "fade", mode: "out-in" },
+    head: {
+      title: "Ritika's Portfolio",
+      htmlAttrs: {
+        lang: "en",
+      },
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        {
+          name: "description",
+          content:
+            "Portfolio of Ritika Tamrakar, Frontend Developer and UI/UX Designer.",
+        },
+        { name: "format-detection", content: "telephone=no" },
+      ],
+      link: [{ rel: "icon", type: "image/png", href: "/code-logo.png" }],
     },
-    meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
-      { name: "format-detection", content: "telephone=no" },
-    ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/code-logo.png" }],
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
+  // Register components by file name only (e.g. <Qualifications />, not
+  // <AboutQualifications />), matching the Nuxt 2 behaviour the templates use
+  components: [{ path: "~/components", pathPrefix: false }],
+
+  // Global CSS (~ resolves to app/ in Nuxt 4)
   css: ["~/assets/app.css"],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    // "~/plugins/back-to-top.js"
-  ],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/tailwindcss
-    "@nuxtjs/tailwindcss",
-    "@nuxtjs/color-mode",
-  ],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
-};
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode"],
+});

@@ -1,11 +1,12 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: [
-    "./components/**/*.{vue,js}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
+  content: [
+    "./app/components/**/*.{vue,js,ts}",
+    "./app/layouts/**/*.vue",
+    "./app/pages/**/*.vue",
+    "./app/plugins/**/*.{js,ts}",
+    "./app/app.vue",
     "./nuxt.config.{js,ts}",
   ],
   darkMode: "class",
@@ -29,11 +30,6 @@ module.exports = {
           "2xl": "8rem",
         },
       },
-    },
-  },
-  variants: {
-    extend: {
-      opacity: ["disabled"],
     },
   },
   plugins: [require("@tailwindcss/forms")],

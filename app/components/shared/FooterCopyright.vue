@@ -1,5 +1,6 @@
 <script>
-import { mapState } from "vuex";
+import { useApp } from "~/composables/useApp";
+import { computed } from "vue";
 
 export default {
   data: () => {
@@ -8,8 +9,10 @@ export default {
       author: "Ritika",
     };
   },
-  computed: {
-    ...mapState(["copyrightDate"]),
+  setup() {
+    const { get } = useApp();
+    const copyrightDate = computed(() => get("copyrightDate").value);
+    return { copyrightDate };
   },
 };
 </script>

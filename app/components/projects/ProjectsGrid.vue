@@ -143,8 +143,9 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
 import feather from "feather-icons";
+import { useApp } from "~/composables/useApp";
+import { computed } from "vue";
 
 export default {
   data: () => {
@@ -153,8 +154,15 @@ export default {
       searchProject: "",
     };
   },
+  setup() {
+    const { get } = useApp();
+    const projectsHeading = computed(() => get("projectsHeading").value);
+    const projectsDescription = computed(() => get("projectsDescription").value);
+    const projects = computed(() => get("projects").value);
+
+    return { projectsHeading, projectsDescription, projects };
+  },
   computed: {
-    ...mapState(["projectsHeading", "projectsDescription", "projects"]),
     filteredProjects() {
       if (this.selectedProject) {
         return this.filterProjectsByCategory();
@@ -173,8 +181,10 @@ export default {
       });
     },
     filterProjectsBySearch() {
-      let project = new RegExp(this.searchProject, "i");
-      return this.projects.filter((el) => el.title.match(project));
+      const query = this.searchProject.trim().toLowerCase();
+      return this.projects.filter((el) =>
+        el.title.toLowerCase().includes(query)
+      );
     },
   },
   mounted() {

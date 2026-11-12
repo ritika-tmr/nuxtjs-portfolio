@@ -20,7 +20,7 @@ export default {
   updated() {
     feather.replace();
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener("scroll", this.updateScrollPosition);
   },
   methods: {

@@ -6,12 +6,27 @@ const { state } = useApp();
 const open = ref(false);
 const scrolled = ref(false);
 
-const isActive = (to) => (to === "/" ? route.path === "/" : route.path.startsWith(to));
+// On Home, highlight the section on screen; elsewhere, highlight by page
+// (project pages count as Projects).
+const activeSection = useActiveSection();
+const isActive = (l) =>
+  route.path === "/" ? activeSection.value === l.section : l.section === "work" && route.path.startsWith("/projects");
 const mailto = computed(
   () => `mailto:${state.value.contact.email}?subject=${encodeURIComponent("Let's work together")}&body=${encodeURIComponent("Hi Ritika,")}`
 );
 
-watch(() => route.path, () => (open.value = false));
+watch(() => route.fullPath, () => (open.value = false));
+
+// Already on Home: scroll to the section ourselves (the address may not
+// change, e.g. clicking Home at the top or a section you already visited)
+function onNav(l) {
+  open.value = false;
+  if (route.path !== "/") return;
+  const el = l.section === "top" ? null : document.getElementById(l.section);
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const top = el ? el.getBoundingClientRect().top + window.scrollY - 84 : 0;
+  window.scrollTo({ top, behavior: reduce ? "auto" : "smooth" });
+}
 
 const onScroll = () => (scrolled.value = window.scrollY > 24);
 onMounted(() => {
@@ -34,9 +49,10 @@ onBeforeUnmount(() => window.removeEventListener("scroll", onScroll));
           v-for="l in links"
           :key="l.to"
           :to="l.to"
+          @click="onNav(l)"
           class="squiggle squiggle-gold squiggle-hover rounded-full px-3.5 py-1.5 text-[15px] transition-colors"
-          :class="isActive(l.to) ? 'is-active font-bold text-bridal' : 'hover:text-bridal'"
-          :aria-current="isActive(l.to) ? 'page' : undefined"
+          :class="isActive(l) ? 'is-active font-bold text-bridal' : 'hover:text-bridal'"
+          :aria-current="isActive(l) ? 'page' : undefined"
         >{{ l.label }}</NuxtLink>
       </nav>
 
@@ -66,8 +82,9 @@ onBeforeUnmount(() => window.removeEventListener("scroll", onScroll));
             v-for="l in links"
             :key="l.to"
             :to="l.to"
+            @click="onNav(l)"
             class="rounded-2xl px-4 py-3 font-display text-2xl"
-            :class="isActive(l.to) ? 'text-bridal' : ''"
+            :class="isActive(l) ? 'text-bridal' : ''"
           >{{ l.label }}</NuxtLink>
           <a :href="mailto" class="btn btn-red mt-3">Hire me</a>
         </div>

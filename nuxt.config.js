@@ -37,6 +37,13 @@ export default defineNuxtConfig({
     },
   },
 
+  // The site is one long Home page; the old separate pages point to their sections
+  routeRules: {
+    "/about": { redirect: "/#story" },
+    "/skills": { redirect: "/#skills" },
+    "/contact": { redirect: "/#contact" },
+  },
+
   // Register components by file name only (e.g. <SkillsMap />, not
   // <SkillsSkillsMap />), matching the Nuxt 2 behaviour the templates use
   components: [{ path: "~/components", pathPrefix: false }],

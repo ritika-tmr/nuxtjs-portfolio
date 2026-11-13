@@ -12,7 +12,9 @@
   "dependencies": {
     "@tailwindcss/forms": "^0.5.10",
     "d3": "^7.9.0",
-    "nuxt": "^4.0.0"
+    "nuxt": "^4.0.0",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^3.5.2",

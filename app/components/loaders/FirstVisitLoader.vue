@@ -35,6 +35,8 @@ function finish() {
     sessionStorage.setItem(KEY, "1");
   } catch (e) {}
   leaving.value = true;
+  // tell the page it can start its entrance animations
+  window.dispatchEvent(new Event("rt-loader-done"));
   setTimeout(() => (visible.value = false), 900);
 }
 

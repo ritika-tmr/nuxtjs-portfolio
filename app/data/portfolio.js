@@ -227,6 +227,7 @@ export const state = () => ({
       body: "Weekends at WoodenKits Industry, my family's factory. Sawdust, puzzles, and learning early that how something looks decides whether it sells.",
       aside: "favourite toy: the offcuts bin",
       art: "woodshop",
+      stop: 0, // index into journey (the city on the map)
       tint: "brick",
     },
     {
@@ -236,6 +237,7 @@ export const state = () => ({
       body: "Packaging, catalogues and labels for WoodenKits. My first brief came from my dad, and so did my first round of revisions.",
       aside: "",
       art: "design",
+      stop: 0, // index into journey (the city on the map)
       tint: "gold",
     },
     {
@@ -245,6 +247,7 @@ export const state = () => ({
       body: "A Bachelor of Engineering in Computer Science and Technology at Beijing University of Posts and Telecommunications. Learned to code, and to order dumplings with confidence.",
       aside: "",
       art: "beijing",
+      stop: 1, // index into journey (the city on the map)
       tint: "white",
     },
     {
@@ -254,6 +257,7 @@ export const state = () => ({
       body: "COVID brought me back to Nepal. I filled the quiet months modelling rooms and objects in 3ds Max.",
       aside: "pretty, pretty, pretty good renders",
       art: "render",
+      stop: 2, // index into journey (the city on the map)
       tint: "sage",
     },
     {
@@ -263,6 +267,7 @@ export const state = () => ({
       body: "Vue, Nuxt and Quasar apps, including Roadmate. Designing screens in Figma, then building and shipping them to real users.",
       aside: "",
       art: "frontend",
+      stop: 2, // index into journey (the city on the map)
       tint: "bridal",
     },
     {
@@ -272,16 +277,17 @@ export const state = () => ({
       body: "A Master of ICT in Data Analytics at Western Sydney University, and now work as a Data Visualisation Analyst and Project Manager. My team won Optimise in October 2025 for enhancing trust in data storytelling.",
       aside: "plot twist: I love spreadsheets now",
       art: "sydney",
+      stop: 3, // index into journey (the city on the map)
       tint: "white",
     },
   ],
 
-  // Home page "long way round" path
+  // Story section journey map: the four stops, with map coordinates
   journey: [
-    { id: 1, city: "Kathmandu", years: "childhood", line: "A woodshop and a lot of sawdust" },
-    { id: 2, city: "Beijing", years: "2015 – 2020", line: "Engineering at BUPT" },
-    { id: 3, city: "Kathmandu", years: "2020 – 2023", line: "3ds Max, then frontend" },
-    { id: 4, city: "Sydney", years: "2023 – now", line: "Data, dashboards, delivery" },
+    { id: 1, city: "Kathmandu", years: "childhood", line: "A woodshop and a lot of sawdust", lon: 85.32, lat: 27.72 },
+    { id: 2, city: "Beijing", years: "2015 – 2020", line: "Engineering at BUPT", lon: 116.4, lat: 39.9 },
+    { id: 3, city: "Kathmandu", years: "2020 – 2023", line: "3ds Max, then frontend", lon: 85.32, lat: 27.72 },
+    { id: 4, city: "Sydney", years: "2023 – now", line: "Data, dashboards, delivery", lon: 151.21, lat: -33.87 },
   ],
 
   // Skills mind map. `chapter` links a skill to the story chapter it came from.

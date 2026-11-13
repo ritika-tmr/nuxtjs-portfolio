@@ -6,9 +6,9 @@
     <AppHeader />
     <main id="main" class="flex-1">
       <slot />
-      <NextPage />
     </main>
     <AppFooter />
     <BackToTop />
+    <CustomCursor />
   </div>
 </template>

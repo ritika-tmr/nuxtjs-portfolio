@@ -100,6 +100,16 @@
   .font-display em {
     font-style: normal;
   }
+  /* highlighted text: gold, so it stands apart from the red and paper design */
+  ::selection {
+    background: #e7b93a;
+    color: #2b2522;
+  }
+  /* with the custom cursor active (mouse/trackpad only), hide the native one */
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
   :focus-visible {
     outline: 3px solid var(--gold);
     outline-offset: 3px;

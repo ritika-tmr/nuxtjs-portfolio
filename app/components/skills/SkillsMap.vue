@@ -328,10 +328,21 @@ onMounted(async () => {
   render();
   makeSim();
   selectNode(byId.get("core"));
-  grow();
+  // grow the tree when it first scrolls into view (not before anyone sees it)
+  growObserver = new IntersectionObserver(
+    ([e]) => {
+      if (!e.isIntersecting) return;
+      growObserver.disconnect();
+      grow();
+    },
+    { threshold: 0.25 }
+  );
+  growObserver.observe(svgEl.value);
 });
+let growObserver = null;
 onBeforeUnmount(() => {
   playing.value = false;
+  growObserver?.disconnect();
   if (sim) sim.stop();
 });
 </script>
@@ -380,7 +391,7 @@ onBeforeUnmount(() => {
         </Transition>
       </div>
 
-      <aside class="panel bg-paper-2 px-7 py-8" aria-live="polite">
+      <aside class="panel bg-paper px-7 py-8" aria-live="polite">
         <template v-if="!selected">
           <p class="font-hand text-xl leading-none text-muted">the big picture</p>
           <h2 class="mt-1 text-3xl">{{ skills.branches.length }} branches, one person.</h2>
@@ -410,7 +421,7 @@ onBeforeUnmount(() => {
             <span class="text-muted">{{ chapterById[selected.chapter].when }}</span>
           </div>
           <p>{{ selected.note }}</p>
-          <NuxtLink to="/about" class="squiggle squiggle-brick mt-3 inline-block text-sm font-bold">Read the chapter →</NuxtLink>
+          <a href="#story" class="squiggle squiggle-brick mt-3 inline-block text-sm font-bold">Read the chapter →</a>
         </template>
         <template v-else>
           <p class="font-hand text-xl leading-none text-muted">a soft skill that ties branches together</p>

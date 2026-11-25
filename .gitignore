@@ -66,6 +66,8 @@ typings/
 .next
 
 # nuxt.js build output
+.output
+.data
 .nuxt
 
 # Nuxt generate
@@ -88,5 +90,3 @@ sw.*
 
 # Vim swap files
 *.swp
-yarn.lock
-package-lock.json

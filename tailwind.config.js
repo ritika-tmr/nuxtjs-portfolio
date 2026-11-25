@@ -1,39 +1,51 @@
-const colors = require("tailwindcss/colors");
-
+// Colours are CSS variables (see app/assets/app.css) so light and dark mode
+// swap in one place.
 module.exports = {
-  purge: [
-    "./components/**/*.{vue,js}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
+  content: [
+    "./app/components/**/*.{vue,js,ts}",
+    "./app/layouts/**/*.vue",
+    "./app/pages/**/*.vue",
+    "./app/plugins/**/*.{js,ts}",
+    "./app/app.vue",
     "./nuxt.config.{js,ts}",
   ],
   darkMode: "class",
   theme: {
     extend: {
       colors: {
-        "primary-light": "#F7F8FC",
-        "secondary-light": "#FFFFFF",
-        "ternary-light": "#f6f7f8",
-
-        "primary-dark": "#0D2438",
-        "secondary-dark": "#102D44",
-        "ternary-dark": "#1E3851",
+        paper: "var(--paper)",
+        "paper-2": "var(--paper-2)",
+        surface: "var(--surface)",
+        ink: "var(--ink)",
+        muted: "var(--muted)",
+        line: "var(--line)",
+        bridal: "var(--bridal)",
+        "bridal-soft": "var(--bridal-soft)",
+        "on-bridal": "var(--on-bridal)",
+        gold: "var(--gold)",
+        "gold-soft": "var(--gold-soft)",
+        "gold-ink": "var(--gold-ink)",
+        brick: "var(--brick)",
+        "brick-soft": "var(--brick-soft)",
+        sage: "var(--sage)",
+        "sage-soft": "var(--sage-soft)",
+        mist: "var(--mist)",
+        wood: "var(--wood)",
+      },
+      fontFamily: {
+        display: ['"Fraunces"', "Georgia", "serif"],
+        body: ['"Epilogue"', "system-ui", "sans-serif"],
+        hand: ['"Caveat"', '"Comic Sans MS"', "cursive"],
       },
       container: {
+        center: true,
         padding: {
           DEFAULT: "1rem",
           sm: "2rem",
-          lg: "5rem",
+          lg: "4rem",
           xl: "6rem",
-          "2xl": "8rem",
         },
       },
-    },
-  },
-  variants: {
-    extend: {
-      opacity: ["disabled"],
     },
   },
   plugins: [require("@tailwindcss/forms")],

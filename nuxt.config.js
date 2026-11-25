@@ -44,6 +44,13 @@ export default defineNuxtConfig({
     "/contact": { redirect: "/#contact" },
   },
 
+  // Static build for GitHub Pages: always generate the redirect pages above
+  nitro: {
+    prerender: {
+      routes: ["/about", "/skills", "/contact"],
+    },
+  },
+
   // Register components by file name only (e.g. <SkillsMap />, not
   // <SkillsSkillsMap />), matching the Nuxt 2 behaviour the templates use
   components: [{ path: "~/components", pathPrefix: false }],
